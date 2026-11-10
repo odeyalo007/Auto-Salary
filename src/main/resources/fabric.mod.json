@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "untitled",
+  "version": "${version}",
+  "name": "auto salary",
+  "description": " этот мод создан для сервера Fast.mc за другие проекты на котором вы будите играть я не уверен что он будет там работать ",
+  "authors": [
+    "Dimapro66"
+  ],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "images.png",
+  "environment": "*",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.rules.rules.untitled.client.UntitledDataGenerator"
+    ],
+    "client": [
+      "com.rules.rules.untitled.client.UntitledClient"
+    ],
+    "main": [
+      "com.rules.rules.untitled.Untitled"
+    ]
+  },
+  "mixins": [
+    "untitled.mixins.json",
+    {
+      "config": "untitled.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
