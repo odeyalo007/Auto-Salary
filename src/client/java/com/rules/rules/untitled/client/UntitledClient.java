@@ -21,8 +21,8 @@ public class UntitledClient implements ClientModInitializer {
 
                 if (ticks >= 36000) { // 30 минут
                     ticks = 0;
-                    client.player.networkHandler.sendCommand("salary");
-                    client.player.sendMessage(Text.literal("§e[Таймер] Зарплата получена!"), false);
+                    client.player.networkHandler.sendChatCommand("salary");
+                    client.player.sendMessage(Text.literal("§e Зарплата получена!"), false);
                 }
 
                 if (ticks % 6000 == 0 && ticks > 0) { // Каждые 5 минут
@@ -39,7 +39,7 @@ public class UntitledClient implements ClientModInitializer {
                         int totalSeconds = (36000 - ticks) / 20;
                         int minutes = totalSeconds / 60;
                         int seconds = totalSeconds % 60;
-                        context.getSource().sendFeedback(Text.literal("§bОсталось: §f" + minutes + ":" + seconds));
+                        context.getSource().sendFeedback(Text.literal("§bОсталось: §f" + minutes + " : " + seconds));
                         return 1;
                     }));
 
@@ -52,7 +52,7 @@ public class UntitledClient implements ClientModInitializer {
                                     int newTicks = 36000 - (minutes * 1200);
                                     if (newTicks < 0) newTicks = 0;
                                     ticks = newTicks;
-                                    context.getSource().sendFeedback(Text.literal("§aТаймер установлен на " + minutes + " минут!"));
+                                    context.getSource().sendFeedback(Text.literal("§aТаймер установлен на " + minutes + " минут"));
                                 } catch (NumberFormatException e) {
                                     context.getSource().sendFeedback(Text.literal("§cОшибка! Введи число и 'm', например: /ssettime 20m"));
                                 }
@@ -76,9 +76,9 @@ public class UntitledClient implements ClientModInitializer {
             dispatcher.register(ClientCommandManager.literal("sreset")
                     .executes(context -> {
                         if (context.getSource().getClient().player != null) {
-                            context.getSource().getClient().player.networkHandler.sendCommand("salary");
+                            context.getSource().getClient().player.networkHandler.sendChatCommand("salary");
                             ticks = 0;
-                            context.getSource().sendFeedback(Text.literal("§a[Ресет] Зарплата выдана, таймер сбро!ен!"));
+                            context.getSource().sendFeedback(Text.literal("§a Зарплата выдана, таймер сброшен!"));
                         }
                         return 1;
 

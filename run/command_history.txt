@@ -1,0 +1,28 @@
+/stopsound
+/stopsound Player802 master minecraft:ambient.basalt_deltas.additions
+/stime
+/stoggle
+/stime
+/sstop
+/sstart
+/stime
+/say 1
+/sstart
+/stime
+/stest
+/stime
+/stest
+/stime
+/time set day
+/stime
+/ssettime 20m
+/stime
+/ssettime 21m
+/stime
+/ssettime 5m
+/stime
+/ssettime 1
+/ssettime f
+/ssettime 1s
+/ssettime 1
+/stime
